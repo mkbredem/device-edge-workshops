@@ -16,6 +16,7 @@
           vars:
             route53_dns_record: "{{ route53_domains.cockpit.domain }}"
         - name: issue certificates
+          when: use_zerossl|bool
           ansible.builtin.include_role:
             name: ../roles/zerossl_cert
           vars:
